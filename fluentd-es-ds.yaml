@@ -1,0 +1,18 @@
+#DaemonSet spec  fluentd-es-ds.yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluentd-ds
+spec:
+  selector:
+    matchLabels:
+      app: fluentd-app
+  template:
+    metadata:
+      name: fluentd-name
+      labels:
+        app: fluentd-app
+    spec:
+      containers:
+      - name: fluentd-container
+        image: gcr.io/google-containers/fluentd-elasticsearch:1.20
